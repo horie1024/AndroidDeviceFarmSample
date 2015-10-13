@@ -1,0 +1,23 @@
+general:
+  branches:
+    only:
+      - master
+machine:
+  java:
+    version: openjdk7
+  ruby:
+    version: 2.2.0
+  environment:
+    ANDROID_HOME: /usr/local/android-sdk-linux
+dependencies:
+  override:
+    - echo y | android update sdk --no-ui --filter "android-23,build-tools-23.0.1"
+    - cd scripts && bundle install
+test:
+  override:
+    - echo "Nothing to do here"
+deployment:
+  master:
+    branch: master
+    commands:
+      - ./scripts/deploy.sh
