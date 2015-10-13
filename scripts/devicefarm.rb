@@ -30,7 +30,7 @@ upload_apk_resp = devicefarm.create_upload({
 })
 
 s3_url = upload_apk_resp.upload.url
-upload(s3_url, "../app/build/outputs/apk/app-debug.apk")
+upload(s3_url, "app/build/outputs/apk/app-debug.apk")
 
 upload_calabash_test_resp = devicefarm.create_upload({
     project_arn: project_arn,
@@ -40,7 +40,7 @@ upload_calabash_test_resp = devicefarm.create_upload({
 })
 
 calabash_s3_url = upload_calabash_test_resp.upload.url
-upload(calabash_s3_url, "../features.zip")
+upload(calabash_s3_url, "features.zip")
 
 10.times do
     res_apk_upload = devicefarm.get_upload({
