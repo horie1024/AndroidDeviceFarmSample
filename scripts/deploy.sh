@@ -1,5 +1,5 @@
 ./gradlew assembleDebug
 
-zip -r ../features.zip ../features
+zip -r features.zip features
 
-ruby devicefarm.rb
+ruby scripts/devicefarm.rb
